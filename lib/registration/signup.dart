@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:zmap/home/home.dart';
-import 'package:zmap/registration/signup.dart';
+import 'package:zmap/registration/login.dart';
 import 'package:zmap/widgets/blueButton.dart';
 import 'package:zmap/widgets/textField.dart';
 
-class Login extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,16 +27,16 @@ class _LoginState extends State<Login> {
           body: SingleChildScrollView(
             child: SafeArea(
               child: Container(
-                padding: EdgeInsets.fromLTRB(40, 80, 40, 0),
+                padding: EdgeInsets.fromLTRB(40, 30, 40, 0),
                 child: Column(
                   children: [
                     Image.asset(
                       'assets/logo.png',
                       width: 100,
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 30),
                     Text(
-                      'Sign in to get started',
+                      'Sign up to get started',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -50,43 +49,28 @@ class _LoginState extends State<Login> {
                     ),
                     SizedBox(height: 10),
                     BTextField(
+                      hint: 'Email',
+                    ),
+                    SizedBox(height: 10),
+                    BTextField(
+                      hint: 'Phone',
+                    ),
+                    SizedBox(height: 10),
+                    BTextField(
                       hint: 'Password',
                       isObscure: true,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forgot Password',
-                            style: TextStyle(
-                              color: Color(0xffF1F1F1),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                     SizedBox(height: 10),
                     BlueButton(
-                      text: 'LOGIN',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Home()),
-                        );
-                      },
+                      text: 'SIGN UP',
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => SignUp()));
+                            MaterialPageRoute(builder: (context) => Login()));
                       },
                       child: Text(
-                        'Get new Account.. SIGN UP',
+                        'Have Account ... LOGIN',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 13,
@@ -99,7 +83,7 @@ class _LoginState extends State<Login> {
               ),
             ),
           ),
-        ),
+        )
       ],
     );
   }
